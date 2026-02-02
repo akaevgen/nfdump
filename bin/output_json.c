@@ -59,7 +59,7 @@
 
 #ifdef NSEL
 static char *NSEL_event_string[6] = {
-	"IGNORE", "CREATE", "DELETE", "DENIED", "ALERT", "UPDATE"
+	"IGNORE", "HISTORIC", "HISTORIC", "EXHAUSTED", "CREATE", "DELETE"
 };
 
 static char *NEL_event_string[3] = {
@@ -396,6 +396,7 @@ extension_map_t	*extension_map = r->map_ref;
 				char *datestr, datebuff[64];
 				if ( r->event <= 5 ) {
 					event = NSEL_event_string[r->event];
+					printf("Event No: %d\n", r->event);
 				} 
 				when = r->event_time / 1000LL;
 				ts = localtime(&when);
@@ -412,8 +413,8 @@ extension_map_t	*extension_map = r->map_ref;
 				} break;
 			case EX_NEL_COMMON: {
 				char *event = "UNKNOWN";
-				if ( r->event <= 2 ) {
-					event = NEL_event_string[r->event];
+				if ( r->event <= 5 ) {
+					event = NSEL_event_string[r->event];
 				}
 				snprintf(_s, slen-1,
 "	\"nat_event_id\" : \"%u\",\n"

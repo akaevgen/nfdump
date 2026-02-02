@@ -74,7 +74,7 @@ static double	duration;
 
 #ifdef NSEL
 static char *NSEL_event_string[6] = {
-	"IGNORE", "CREATE", "DELETE", "DENIED", "ALERT", "UPDATE"
+	"IGNORE", "HISTORIC", "HISTORIC", "EXHAUSTED", "CREATE", "DELETE"
 };
 
 static char *NEL_event_string[3] = {
@@ -2653,22 +2653,22 @@ static void String_evt(master_record_t *r, char *string) {
 	if ( r->event_flag == FW_EVENT ) {
 		switch(r->event) {
 			case 0:
-					snprintf(string, MAX_STRING_LENGTH-1 ,"%3s", "IGNORE");
+				snprintf(string, MAX_STRING_LENGTH-1 ,"%3s", "IGNORE");
 				break;
 			case 1:
-				snprintf(string, MAX_STRING_LENGTH-1 ,"%6s", "CREATE");
+				snprintf(string, MAX_STRING_LENGTH-1 ,"%6s", "HISTORIC");
 				break;
 			case 2:
-				snprintf(string, MAX_STRING_LENGTH-1 ,"%6s", "DELETE");
+				snprintf(string, MAX_STRING_LENGTH-1 ,"%6s", "HISTORIC");
 				break;
 			case 3:
-				snprintf(string, MAX_STRING_LENGTH-1 ,"%6s", "DENIED");
+				snprintf(string, MAX_STRING_LENGTH-1 ,"%6s", "EXHAUSTED");
 				break;
 			case 4:
-				snprintf(string, MAX_STRING_LENGTH-1 ,"%6s", "ALERT");
+				snprintf(string, MAX_STRING_LENGTH-1 ,"%6s", "CREATE");
 				break;
 			case 5:
-				snprintf(string, MAX_STRING_LENGTH-1 ,"%6s", "UPDATE");
+				snprintf(string, MAX_STRING_LENGTH-1 ,"%6s", "DELETE");
 				break;
 			default:
 				snprintf(string, MAX_STRING_LENGTH-1 ,"%6s", "UNKNOW");
@@ -2676,7 +2676,7 @@ static void String_evt(master_record_t *r, char *string) {
 	} else {
 		switch(r->event) {
 			case 0:
-					snprintf(string, MAX_STRING_LENGTH-1 ,"%3s", "INVALID");
+				snprintf(string, MAX_STRING_LENGTH-1 ,"%3s", "INVALID");
 				break;
 			case 1:
 				snprintf(string, MAX_STRING_LENGTH-1 ,"%6s", "ADD");

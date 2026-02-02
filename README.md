@@ -1,5 +1,41 @@
 # nfdump
 
+# Quick Install
+
+## Requred Packages:
+
+libtool
+build-essential
+pkg-config
+flex
+libbz2-dev
+bison
+libpcap-dev
+
+## Clone
+
+#git clone https://github.com/akaevgen/nfdump
+
+## Make and Install
+#cd nfdump
+#./autogen.sh
+#./configure --enable-nsel --enable-readpcap --enable-nfpcapd
+#make
+#sudo make install
+
+## Usage Example
+
+#nfdump -f ipfix.pcap -l ./
+
+cmd above generates output like "nfcapd.202602021304"
+
+#nfdump -r nfcapd.202602021304
+Date first seen          Event  XEvent Proto      Src IP Addr:Port          Dst IP Addr:Port     X-Src IP Addr:Port        X-Dst IP Addr:Port   In Byte Out Byte
+2026-01-26 19:45:58.427 DELETE  Ignore UDP       100.66.128.6:50627 ->   77.112.113.130:53         137.10.148.0:4275  ->   77.112.113.130:53           0        0
+
+to get json output please use -o json mode
+#nfdump -r nfcapd.202602021304 -o json
+
 Stable Release v1.6.17
 
 See the Changelog file for all changes in release 1.6.17
