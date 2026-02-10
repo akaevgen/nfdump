@@ -17,11 +17,11 @@
 #git clone https://github.com/akaevgen/nfdump
 
 ## Make and Install
-#cd nfdump
-#./autogen.sh
-#./configure --enable-nsel --enable-readpcap --enable-nfpcapd
-#make
-#sudo make install
+* #cd nfdump
+* #./autogen.sh
+* #./configure --enable-nsel --enable-readpcap --enable-nfpcapd
+* #make
+* #sudo make install
 
 ## Usage Example
 
