@@ -4,13 +4,13 @@
 
 ## Requred Packages:
 
-libtool
-build-essential
-pkg-config
-flex
-libbz2-dev
-bison
-libpcap-dev
+* libtool
+* build-essential
+* pkg-config
+* flex
+* libbz2-dev
+* bison
+* libpcap-dev
 
 ## Clone
 
